@@ -71,7 +71,7 @@ func handleConnection(conn net.Conn, config *tls.Config) {
 
 	log.Printf("Received SNI: %s\n", hello.ServerName)
 
-	dstConn, err := net.Dial("tcp", "whoami.default.svc.cluster.local:80")
+	dstConn, err := net.Dial("tcp", "whoami.default.svc:80")
 	if err != nil {
 		log.Println(err)
 		return
