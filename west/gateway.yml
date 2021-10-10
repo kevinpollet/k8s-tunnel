@@ -18,9 +18,9 @@ spec:
         - name: gateway
           image: gateway:west
           args:
-            - '-ca=/certs/tls.ca'
-            - '-cert=/certs/tls.crt'
-            - '-key=/certs/tls.key'
+            - -ca=/certs/tls.ca
+            - -cert=/certs/tls.crt
+            - -key=/certs/tls.key
 
           volumeMounts:
             - mountPath: /certs
