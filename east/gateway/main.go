@@ -63,8 +63,7 @@ func handleConnection(conn net.Conn, config *tls.Config) {
 	})
 	defer func() { _ = tlsConn.Close() }()
 
-	err := tlsConn.Handshake()
-	if err != nil {
+	if err := tlsConn.Handshake(); err != nil {
 		log.Println(err)
 		return
 	}

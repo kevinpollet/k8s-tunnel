@@ -46,8 +46,7 @@ func main() {
 	for {
 		conn, err := l.Accept()
 		if err != nil {
-			log.Println(err)
-			continue
+			log.Fatal(err)
 		}
 
 		go handleConnection(conn, tlsConfig)

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 k3d cluster delete east
-k3d cluster create east --agents 1 --k3s-server-arg '--no-deploy=traefik' -p "3000:3000@loadbalancer"
+k3d cluster create east --agents 1 --k3s-arg '--no-deploy=traefik@servers:*' -p "3000:3000@loadbalancer"
 
 docker build -f gateway/Dockerfile gateway/ -t gateway:east
 k3d image import -c east gateway:east

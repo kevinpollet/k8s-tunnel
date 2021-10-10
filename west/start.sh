@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 k3d cluster delete west
-k3d cluster create west --agents 1 --k3s-server-arg '--no-deploy=traefik'
+k3d cluster create west --agents 1 --k3s-arg '--no-deploy=traefik@servers:*'
 
 docker build -f gateway/Dockerfile gateway/ -t gateway:west
 k3d image import -c west gateway:west
